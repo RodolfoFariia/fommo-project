@@ -1,11 +1,9 @@
 package com.fommo_project.dto;
 
-import com.fommo_project.model.Usuario;
-import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
-public class AvalicaoCreateDTO {
+public class AvaliacaoCreateDTO {
 
     private String id_item_externo;
     private String tipo_item; // "MUSICA", "ALBUM", "ARTISTA"
