@@ -3,7 +3,9 @@ package com.fommo_project.service;
 import com.fommo_project.dto.AvaliacaoCreateDTO;
 import com.fommo_project.dto.AvaliacaoResponseDTO;
 import com.fommo_project.dto.AvaliacaoUpdateDTO;
+import com.fommo_project.dto.UsuarioResponseDTO;
 import com.fommo_project.model.Avaliacao;
+import com.fommo_project.model.Usuario;
 import com.fommo_project.repository.AvaliacaoRepository;
 import org.springframework.stereotype.Service;
 
@@ -73,6 +75,15 @@ public class AvaliacaoService {
 
     public List<AvaliacaoResponseDTO> findByUser(Long id_usuario){
         List <Avaliacao> avaliacoes = repository.findByUser(id_usuario);
+
+        return avaliacoes.stream()
+                .map(this::mapToResponseDTO)
+                .toList();
+    }
+
+    // método que retorna as avaliações do usuário que está logado
+    public List<AvaliacaoResponseDTO> findByUserLogado(Usuario user){
+        List<Avaliacao> avaliacoes = repository.findByUser(user.getId_usuario());
 
         return avaliacoes.stream()
                 .map(this::mapToResponseDTO)

@@ -4,9 +4,12 @@ import com.fommo_project.dto.AvaliacaoCreateDTO;
 import com.fommo_project.dto.AvaliacaoResponseDTO;
 import com.fommo_project.dto.AvaliacaoUpdateDTO;
 import com.fommo_project.model.Avaliacao;
+import com.fommo_project.model.Usuario;
 import com.fommo_project.service.AvaliacaoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -64,6 +67,22 @@ public class AvaliacaoController {
     public ResponseEntity<Avaliacao> findById(@PathVariable Long id){
         return ResponseEntity.ok(service.findById(id));
     }
+
+    // endpoint para retornar as avaliações do usuário logado
+    @GetMapping("/me")
+    public ResponseEntity<List<AvaliacaoResponseDTO>> findByUserLogado(){
+        Usuario user = getUsuarioLogado();
+
+        return ResponseEntity.ok(service.findByUserLogado(user));
+    }
+
+    // método para retornar o usuário logado
+    private Usuario getUsuarioLogado(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return (Usuario) auth.getPrincipal();
+    }
+
+
 
 
 
