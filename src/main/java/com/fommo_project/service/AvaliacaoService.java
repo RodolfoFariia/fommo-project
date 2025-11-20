@@ -72,7 +72,7 @@ public class AvaliacaoService {
 
 
     public List<AvaliacaoResponseDTO> findByUser(Long id_usuario){
-        List <Avaliacao> avaliacoes = repository.findByUsuario_Id_usuario(id_usuario);
+        List <Avaliacao> avaliacoes = repository.findByUser(id_usuario);
 
         return avaliacoes.stream()
                 .map(this::mapToResponseDTO)

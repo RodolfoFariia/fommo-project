@@ -45,14 +45,14 @@ public class AvaliacaoController {
     }
 
     // endpoint para remoção de uma avaliação
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> remove(@PathVariable Long id){
         service.remove(id);
         return ResponseEntity.noContent().build();
     }
 
     // endpoint para atualizar uma avaliação já cadastrada pelo id
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public ResponseEntity<Avaliacao> update (@PathVariable Long id, @RequestBody AvaliacaoUpdateDTO dto){
         Avaliacao av = service.update(id, dto);
 
@@ -60,7 +60,7 @@ public class AvaliacaoController {
     }
 
     // endpoint para consultar uma avaliação pelo id
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public ResponseEntity<Avaliacao> findById(@PathVariable Long id){
         return ResponseEntity.ok(service.findById(id));
     }
@@ -68,7 +68,7 @@ public class AvaliacaoController {
 
 
     // endpoint para retornar avaliacoes feitas pelo id do user
-    @GetMapping("/id")
+    @GetMapping("/usuario/{id}")
     public ResponseEntity<List<AvaliacaoResponseDTO>> findByUser(@PathVariable Long id){
         return ResponseEntity.ok(service.findByUser(id));
     }
