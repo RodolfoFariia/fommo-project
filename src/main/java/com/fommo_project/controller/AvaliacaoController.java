@@ -6,6 +6,7 @@ import com.fommo_project.dto.AvaliacaoUpdateDTO;
 import com.fommo_project.model.Avaliacao;
 import com.fommo_project.model.Usuario;
 import com.fommo_project.service.AvaliacaoService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -41,10 +42,13 @@ public class AvaliacaoController {
 
     // endpoint para cadastrar uma avaliacao
     @PostMapping
-    public ResponseEntity<Avaliacao> save(@RequestBody AvaliacaoCreateDTO dto){
-        Avaliacao avaliacao = service.save(dto);
+    public ResponseEntity<AvaliacaoResponseDTO> save(@RequestBody @Valid AvaliacaoCreateDTO dto){
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(avaliacao);
+        Usuario usuarioLogado = getUsuarioLogado();
+
+        AvaliacaoResponseDTO novaAvaliacao = service.save(dto, usuarioLogado);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(novaAvaliacao);
     }
 
     // endpoint para remoção de uma avaliação

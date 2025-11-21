@@ -21,7 +21,7 @@ public class AvaliacaoService {
     }
 
     // Método para salvar uma avaliação
-    public Avaliacao save(AvaliacaoCreateDTO dto){
+    public AvaliacaoResponseDTO save(AvaliacaoCreateDTO dto, Usuario usuario){
         Avaliacao av = new Avaliacao();
 
         av.setId_item_externo(dto.getId_item_externo());
@@ -30,9 +30,11 @@ public class AvaliacaoService {
         av.setTitulo(dto.getTitulo());
         av.setTextoAvaliacao(dto.getTextoAvaliacao());
 
-        // ta faltando o id_usuario que vou adicionar quando conseguir pegar ele pelo token do login
+        av.setUsuario(usuario);
 
-        return av;
+        repository.save(av);
+
+        return mapToResponseDTO(av);
     }
 
 
