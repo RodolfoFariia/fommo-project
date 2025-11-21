@@ -98,7 +98,7 @@ git clone [https://github.com/RodolfoFariia/fommo-backend.git](https://github.co
 | `DELETE` | `/me` | Exclui a conta do usuário logado. |
 | `GET` | `/{id}` | Visualiza o perfil público de outro usuário. |
 
-### ⭐ Avaliações (`/api/avaliacoes`)
+### ⭐ Avaliações (`/avaliacoes`)
 *Requer Header: `Authorization: Bearer <token>`*
 
 | Método | Rota | Descrição |
@@ -116,18 +116,13 @@ git clone [https://github.com/RodolfoFariia/fommo-backend.git](https://github.co
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻 Autores
 
-Projeto desenvolvido por:
-**Rodolfo Henrique Faria**
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodolfofaaria/)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/RodolfoFariia)
+Projeto desenvolvido por graduandos em Ciência da Computação pela **UNIFEI**:
 
-**Rafael Santos Pinto Batista Leite**
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodolfofaaria/)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/RodolfoFariia)
+| **Rodolfo Henrique Faria** | **Rafael Santos P. B. Leite** |
+|:--------------------------:|:-----------------------------:|
+| [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodolfofaaria/) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rafael-santos-pinto-batista-leite/) |
+| [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/RodolfoFariia) | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nottfael) |
 
-Graduandos em Ciência da Computação pela **UNIFEI**.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rafael-santos-pinto-batista-leite/)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nottfael)
