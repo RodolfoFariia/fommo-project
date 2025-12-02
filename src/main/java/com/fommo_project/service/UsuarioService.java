@@ -1,10 +1,12 @@
 package com.fommo_project.service;
 
+import com.fommo_project.dto.SenhaUpdateDTO;
 import com.fommo_project.dto.UsuarioResponseDTO;
 import com.fommo_project.dto.UsuarioUpdateDTO;
 import com.fommo_project.model.Usuario;
 import com.fommo_project.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -74,6 +76,24 @@ public class UsuarioService {
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
         return mapToResponseDTO(user);
+    }
+
+
+    // método para atualizar senha do usuário
+    public void updateSenha(SenhaUpdateDTO dto){
+        Usuario user = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        // passwordEnconder recebe uma senha raw e compara com o hash do banco
+        // para isso vai fazer o processo de hash na senha raw com o msm algoritmo da senha do banco
+        // retorna true se forem iguais e false caso contrário
+        if(!passwordEncoder.matches(dto.getSenha_antiga() , user.getPassword())){
+            throw new RuntimeException("Senha atual incorreta!");
+        }
+
+        String senhaHash = passwordEncoder.encode(dto.getSenha_nova());
+        user.setSenha(senhaHash);
+
+        repository.save(user);
     }
 
 }

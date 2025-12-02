@@ -1,5 +1,6 @@
 package com.fommo_project.controller;
 
+import com.fommo_project.dto.SenhaUpdateDTO;
 import com.fommo_project.dto.UsuarioResponseDTO;
 import com.fommo_project.dto.UsuarioUpdateDTO;
 import com.fommo_project.model.Usuario;
@@ -68,6 +69,13 @@ public class UsuarioController {
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioResponseDTO> findById(@PathVariable Long id){
         return ResponseEntity.ok(service.findById(id));
+    }
+
+    // endpoint para alterar a senha do usuário
+    @PatchMapping("/me/password")
+    public ResponseEntity<Void> updateSenha(@RequestBody SenhaUpdateDTO dto){
+        service.updateSenha(dto);
+        return ResponseEntity.ok().build();
     }
 
 
