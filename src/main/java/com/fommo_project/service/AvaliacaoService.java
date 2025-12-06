@@ -107,6 +107,14 @@ public class AvaliacaoService {
     }
 
 
+    // método para retornar avaliações pelo id do spotify
+    public List<AvaliacaoResponseDTO> findByIdSpotify(String spotifyId){
+        return repository.findByIdItemExterno(spotifyId)
+                .stream()
+                .map(this::mapToResponseDTO)
+                .toList();
+    }
+
 
 
 

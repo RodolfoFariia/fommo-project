@@ -11,4 +11,7 @@ public interface AvaliacaoRepository extends JpaRepository<Avaliacao, Long> {
 
     @Query("SELECT a FROM Avaliacao a WHERE a.usuario.id_usuario = :id")
     List<Avaliacao> findByUser(@Param("id") Long id);
+
+    @Query("SELECT a FROM Avaliacao a WHERE a.id_item_externo = :id")
+    List<Avaliacao> findByIdItemExterno(@Param("id") String idItemExterno);
 }

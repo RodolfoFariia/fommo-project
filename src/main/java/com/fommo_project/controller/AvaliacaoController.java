@@ -96,4 +96,10 @@ public class AvaliacaoController {
         return ResponseEntity.ok(service.findByUser(id));
     }
 
+    // endpoint para retornar todas as avaliacoes com mesmo id do spotify
+    @GetMapping("/item/{spotifyId}")
+    public ResponseEntity<List<AvaliacaoResponseDTO>> findByIdSpotify(@PathVariable String spotifyId){
+        return  ResponseEntity.ok(service.findByIdSpotify(spotifyId));
+    }
+
 }

@@ -75,6 +75,9 @@ public class UsuarioController {
     @PatchMapping("/me/password")
     public ResponseEntity<Void> updateSenha(@RequestBody SenhaUpdateDTO dto){
         service.updateSenha(dto);
+        System.out.println("Testando update Senha: ");
+        System.out.println("Senha Antiga:"+dto.getSenha_antiga());
+        System.out.println("Senha Nova:"+dto.getSenha_nova());
         return ResponseEntity.ok().build();
     }
 

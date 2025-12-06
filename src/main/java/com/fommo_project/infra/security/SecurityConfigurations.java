@@ -52,7 +52,7 @@ public class SecurityConfigurations {
         configuration.setAllowedOrigins(List.of("http://localhost:4200"));
 
         // Libera os métodos HTTP que você usa
-        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
 
         // Libera quaisquer cabeçalhos (necessário para enviar o Token Bearer)
         configuration.setAllowedHeaders(List.of("*"));

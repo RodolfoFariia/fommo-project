@@ -17,9 +17,16 @@ public record SpotifySearchResponseDTO (
             String id,
             String name,
             List<Image> images, // Para albuns e artistas
-            Album album // Para musicas (para pegar a imagem da capa)
+            Album album, // Para musicas (para pegar a imagem da capa)
+
+            String release_date,
+            Integer total_tracks,
+            List<ArtistObj> artists
     ) {}
 
     public record Image(String url, int height, int width) {}
-    public record Album(List<Image> images) {}
+    public record Album(List<Image> images, String name) {}
+
+    public record ArtistObj(String name, String id){}
+
 }
