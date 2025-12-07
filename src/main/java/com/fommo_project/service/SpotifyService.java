@@ -2,8 +2,7 @@ package com.fommo_project.service;
 
 import com.fommo_project.client.SpotifyApiClient;
 import com.fommo_project.client.SpotifyAuthClient;
-import com.fommo_project.dto.SpotifySearchResponseDTO;
-import com.fommo_project.dto.SpotifyTokenResponseDTO;
+import com.fommo_project.dto.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -43,5 +42,54 @@ public class SpotifyService {
         SpotifyTokenResponseDTO response = authClient.getAccessToken(body);
 
         return response.accessToken();
+    }
+
+    // Método para receber as requisições de itens pelo id do spotify
+    public ItemSpotifyResponseDto getItemById(String type, String id){
+        Album album = null;
+        Artist artist = null;
+        Track track = null;
+
+
+
+        if(type.equals("Album")){
+            album = getAlbumById(id);
+        }
+        else if (type.equals("Track")){
+            track = getTrackById(id);
+        }
+        else {
+            artist = getArtistById(id);
+        }
+
+        ItemSpotifyResponseDto itemResponse = new ItemSpotifyResponseDto(
+                type,
+                album,
+                artist,
+                track
+        );
+
+        return itemResponse;
+    }
+
+    // Método privado da classe para retornar um album pelo id
+    private Album getAlbumById(String id){
+        String token = "Bearer " + getAccessToken();
+
+        return apiClient.getAlbum(token, id);
+    }
+
+    // Método privado para  buscar uma música pelo id
+    private Track getTrackById(String id){
+        String token = "Bearer " + getAccessToken();
+
+        return apiClient.getTrack(token,id);
+    }
+
+    // Método privado para  buscar um artista pelo id
+    private Artist getArtistById(String id){
+        String token = "Bearer " + getAccessToken();
+
+        return apiClient.getArtist(token,id);
     }
 }

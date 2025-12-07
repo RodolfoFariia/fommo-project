@@ -1,12 +1,10 @@
 package com.fommo_project.controller;
 
+import com.fommo_project.dto.ItemSpotifyResponseDto;
 import com.fommo_project.dto.SpotifySearchResponseDTO;
 import com.fommo_project.service.SpotifyService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/spotify")
@@ -25,5 +23,14 @@ public class SpotifyController {
     ) {
         var result = spotifyService.search(query, type);
         return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/{type}/{id}")
+    public ResponseEntity<ItemSpotifyResponseDto> getById(@PathVariable String type, @PathVariable String id){
+        ItemSpotifyResponseDto item;
+
+        item = spotifyService.getItemById(type,id);
+
+        return ResponseEntity.ok(item);
     }
 }
