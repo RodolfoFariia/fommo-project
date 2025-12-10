@@ -116,13 +116,14 @@ git clone [https://github.com/RodolfoFariia/fommo-backend.git](https://github.co
 
 ---
 
-## 👨‍💻 Autores
 
-Projeto desenvolvido por graduandos em Ciência da Computação pela **UNIFEI**:
+## 👨‍💻 Autor
 
-| **Rodolfo Henrique Faria** | **Rafael Santos P. B. Leite** |
-|:--------------------------:|:-----------------------------:|
-| [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodolfofaaria/) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rafael-santos-pinto-batista-leite/) |
-| [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/RodolfoFariia) | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nottfael) |
+Projeto desenvolvido por graduando em Ciência da Computação pela **UNIFEI**:
+
+| **Rodolfo Henrique Faria** |
+|:--------------------------:|
+| [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodolfofaaria/) |
+| [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/RodolfoFariia) |
 
 
