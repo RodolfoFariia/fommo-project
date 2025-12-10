@@ -8,5 +8,4 @@ public record AlbumObj(
         List<Image> images,
         String name,
         String release_date
-
 ) { }

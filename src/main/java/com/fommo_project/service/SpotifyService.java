@@ -6,6 +6,8 @@ import com.fommo_project.dto.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SpotifyService {
 
@@ -52,10 +54,10 @@ public class SpotifyService {
 
 
 
-        if(type.equals("Album")){
+        if(type.equals("album")){
             album = getAlbumById(id);
         }
-        else if (type.equals("Track")){
+        else if (type.equals("track")){
             track = getTrackById(id);
         }
         else {
@@ -91,5 +93,34 @@ public class SpotifyService {
         String token = "Bearer " + getAccessToken();
 
         return apiClient.getArtist(token,id);
+    }
+
+    public List<ItemSpotifyResponseDto> getNewReleases() {
+        var token = "Bearer " + getAccessToken();
+        var response = apiClient.getNewReleases(token);
+
+        return response.albums().items().stream()
+                .map(spotifyAlbum -> {
+
+
+                    var albumObj = new Album(
+                            spotifyAlbum.id(),
+                            spotifyAlbum.total_tracks(),
+                            spotifyAlbum.images(),
+                            spotifyAlbum.name(),
+                            spotifyAlbum.release_date(),
+                            spotifyAlbum.artists(),
+                            0                          // Popularidade Novos lançamentos geralmente não vêm com isso, ou vem 0
+                    );
+
+
+                    return new ItemSpotifyResponseDto(
+                            "album",    // String type
+                            albumObj,
+                            null,
+                            null
+                    );
+                })
+                .toList();
     }
 }

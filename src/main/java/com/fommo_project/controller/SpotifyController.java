@@ -6,6 +6,8 @@ import com.fommo_project.service.SpotifyService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/spotify")
 public class SpotifyController {
@@ -33,4 +35,16 @@ public class SpotifyController {
 
         return ResponseEntity.ok(item);
     }
+
+    // Dentro da classe SpotifyController
+
+    @GetMapping("/new-releases")
+    public ResponseEntity<List<ItemSpotifyResponseDto>> getNewReleases() {
+        // 1. Chama o serviço que busca e converte os dados
+        List<ItemSpotifyResponseDto> releases = spotifyService.getNewReleases();
+
+        // 2. Retorna HTTP 200 (OK) com a lista no corpo
+        return ResponseEntity.ok(releases);
+    }
+
 }

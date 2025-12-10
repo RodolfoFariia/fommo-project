@@ -28,7 +28,7 @@ public class Avaliacao {
     private String tipo_item; // "MUSICA", "ALBUM", "ARTISTA"
 
     @Column(nullable = false)
-    private Integer nota;
+    private Double nota;
 
     @Column(nullable = false)
     private String titulo;

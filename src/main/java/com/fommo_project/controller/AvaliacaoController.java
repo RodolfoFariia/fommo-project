@@ -60,10 +60,8 @@ public class AvaliacaoController {
 
     // endpoint para atualizar uma avaliação já cadastrada pelo id
     @PutMapping("/{id}")
-    public ResponseEntity<Avaliacao> update (@PathVariable Long id, @RequestBody AvaliacaoUpdateDTO dto){
-        Avaliacao av = service.update(id, dto);
-
-        return ResponseEntity.ok(av);
+    public ResponseEntity<AvaliacaoResponseDTO> update (@PathVariable Long id, @RequestBody AvaliacaoUpdateDTO dto){
+        return ResponseEntity.ok(service.update(id, dto));
     }
 
     // endpoint para consultar uma avaliação pelo id
@@ -85,9 +83,6 @@ public class AvaliacaoController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return (Usuario) auth.getPrincipal();
     }
-
-
-
 
 
     // endpoint para retornar avaliacoes feitas pelo id do user

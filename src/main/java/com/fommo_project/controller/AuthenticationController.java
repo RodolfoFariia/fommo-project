@@ -8,6 +8,7 @@ import com.fommo_project.model.Usuario;
 import com.fommo_project.repository.UsuarioRepository;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -58,7 +59,7 @@ public class AuthenticationController {
     public ResponseEntity register (@RequestBody RegisterDTO dto){
         // verificando se já existe usuário cadastrado com o mesmo email
         if(this.repository.findByEmail(dto.email()) != null){
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
 
         // criptografando a senha

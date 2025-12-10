@@ -53,7 +53,7 @@ public class AvaliacaoService {
     }
 
     // Método para atualizar uma avaliação já cadastrada no banco pelo id
-    public Avaliacao update(Long id, AvaliacaoUpdateDTO dto){
+    public AvaliacaoResponseDTO update(Long id, AvaliacaoUpdateDTO dto){
         Avaliacao av = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Avaliação não encontrada para atualização."));
 
@@ -63,7 +63,7 @@ public class AvaliacaoService {
 
         repository.save(av);
 
-        return av;
+        return mapToResponseDTO(av);
 
     }
 

@@ -46,4 +46,7 @@ public interface SpotifyApiClient {
             @PathVariable("id")
             String id
     );
+
+    @GetMapping("/browse/new-releases?country=BR&limit=12")
+    SpotifyNewReleasesDTO getNewReleases(@RequestHeader("Authorization") String token);
 }
