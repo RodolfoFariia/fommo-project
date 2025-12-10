@@ -11,7 +11,7 @@ Este projeto foi desenvolvido como parte da disciplina de Programação Web da *
 ### 🏗️ Status do Projeto
 
 * **Backend (Este repositório):** ✅ **Concluído (V1.0)**
-* **Frontend (Angular):** 🚧 Em breve
+* **Frontend (Angular):** ✅ **Concluído** - [Acesse o Repositório do Front](https://github.com/RodolfoFariia/fommo-frontend)
 
 ---
 

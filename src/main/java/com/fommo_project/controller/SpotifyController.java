@@ -21,9 +21,13 @@ public class SpotifyController {
     @GetMapping("/search")
     public ResponseEntity<SpotifySearchResponseDTO> search(
             @RequestParam("q") String query,
-            @RequestParam("type") String type
+            @RequestParam("type") String type,
+            @RequestParam(name="limit", defaultValue = "20")
+            int limit,
+            @RequestParam(name="offset", defaultValue = "0")
+            int offset
     ) {
-        var result = spotifyService.search(query, type);
+        var result = spotifyService.search(query, type, limit, offset);
         return ResponseEntity.ok(result);
     }
 

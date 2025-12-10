@@ -20,7 +20,11 @@ public interface SpotifyApiClient {
             @RequestParam("q")
             String query,
             @RequestParam("type")
-            String type
+            String type,
+            @RequestParam("limit")
+            int limit,
+            @RequestParam("offset")
+            int offset
     );
 
     @GetMapping("/albums/{id}")

@@ -27,12 +27,12 @@ public class SpotifyService {
     }
 
     // 1. Método Principal: Busca por albuns, artistas ou faixas
-    public SpotifySearchResponseDTO search(String query, String type) {
+    public SpotifySearchResponseDTO search(String query, String type, int limit, int offset) {
         // Passo A: Pega um token válido
         String token = "Bearer " + getAccessToken();
 
         // Passo B: Faz a busca usando o token
-        return apiClient.search(token, query, type);
+        return apiClient.search(token, query, type,limit, offset);
     }
 
     // 2. Método Auxiliar: Autentica no Spotify e pega o Token
